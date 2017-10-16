@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--最好为自定义主题和样式声明一个合适的父主题，如果没有合适的父样式，action bar将会失去很多默认的样式属性，-->
+    <!--除非我们自己显式的对他们进行声明-->
+
+<resources>
+    <style name="CustomActionBarTheme"
+            parent="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <!--如果我们为actionBar使用了support库的API，我们必须使用（或重写）Theme.AppCompat家族样式。如此一来
+        ，声明的每一个样式需要被声明两次：一次使用系统平台的样式属性（android:属性）；另一次使用support库中的样式
+        属性（appcompat.R.attr属性）-->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <!--支持兼容库-->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ic_add_to_queue_black_48dp</item>
+        <!--支持兼容库-->
+        <item name="background">@drawable/ic_add_to_queue_black_48dp</item>
+    </style>
+</resources>
