@@ -4,21 +4,42 @@
     <!--除非我们自己显式的对他们进行声明-->
 
 <resources>
+    <!--应用于程序或者活动的主题-->
     <style name="CustomActionBarTheme"
-            parent="@style/Theme.AppCompat.Light.DarkActionBar">
+            parent="@style/Theme.AppCompat">
 
         <!--如果我们为actionBar使用了support库的API，我们必须使用（或重写）Theme.AppCompat家族样式。如此一来
         ，声明的每一个样式需要被声明两次：一次使用系统平台的样式属性（android:属性）；另一次使用support库中的样式
         属性（appcompat.R.attr属性）-->
         <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/MyActionBarTabText</item>
+        <item name="android:actionMenuTextColor">@color/actionbar_text</item>
         <!--支持兼容库-->
         <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
+        <item name="actionMenuTextColor">@color/actionbar_text</item>
     </style>
 
+    <!--ActionBar样式-->
     <style name="MyActionBar"
-        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@drawable/ic_add_to_queue_black_48dp</item>
-        <!--支持兼容库-->
-        <item name="background">@drawable/ic_add_to_queue_black_48dp</item>
+        parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
+
+        <!--支持库向后兼容-->
+        <item name="titleTextStyle">@style/MyActionBarTitleText</item>
+    </style>
+
+    <!--ActionBar标题文本-->
+    <style name="MyActionBarTitleText"
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/actionbar_text</item>
+        <!--文本颜色属性textColor是可以配合支持库向后兼容的-->
+
+    </style>
+
+    <style name="MyActionBarTabText"
+        parent="@style/Widget.AppCompat.ActionBar.TabText">
+        <item name="android:textColor">@color/actionbar_text</item>
+        <!--文本颜色属性textColor是可以配合支持库向后兼容的-->
     </style>
 </resources>
